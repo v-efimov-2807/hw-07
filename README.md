@@ -31,6 +31,6 @@ npm run-script start
 node index.js
 
 В браузере переходим
-http://localhost:8080/index.html
+http://localhost:8047/index.html
 
 

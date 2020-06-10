@@ -18,7 +18,7 @@ export class Person {
             return agePerson + " лет";
         } else if ( (agePerson % 10) === 1 ) {
             return agePerson + " год";
-        } else if ( ((agePerson % 10) === 2) || ((agePerson % 10) === 2) || ((agePerson % 10) === 2) ) {
+        } else if ( ((agePerson % 10) === 2) || ((agePerson % 10) === 3) || ((agePerson % 10) === 4) ) {
             return agePerson + " года";
         }
         
@@ -87,11 +87,13 @@ export class Person {
                 page.style.backgroundColor = "#fff";
             });
 
-        document.addEventListener('mousedown', function(e) {
-            if(e.target.closest('.personPopup') === null) {
+        document.addEventListener('mouseup', function(e) {
+            if( (e.target.closest('.personPopup') === null) ) {
+                console.log(e.target.className);
                 personPopup.style.display = 'none';
                 page.style.backgroundColor = "#fff";
             }
+            
         });
     };
 }

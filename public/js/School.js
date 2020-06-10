@@ -1,4 +1,5 @@
 import {PersonFactory} from "./PersonFactory.js"
+import { Student, Teacher } from "./personLib.js";
 
 export class School {
     constructor() {
@@ -46,4 +47,16 @@ export class School {
             return "Student not found";
         }
     };
+
+    appendToDOM() {
+        this.students.forEach((item) => {
+            const student = new Student(item);
+            student.appendToDOM();
+        });
+
+        this.teachers.forEach((item) => {
+            const teacher = new Teacher(item);
+            teacher.appendToDOM();
+        });
+    }
 }

@@ -1,38 +1,23 @@
-import { PersonFactory } from "./PersonFactory.js";
 import { personArr } from "./personArr.js";
 import { School } from "./School.js";
 
+
+// создадим школу (если есть для нее фабрика, то тоже через фабрику) 
+let school = new School();
+
+// добавим в список школы студентов используйте те данные, которые у вас есть
+// Vasia и пр. тут скорее для примера
+// если методы называются по другому, поменяйте
+// по желанию можно добавить больше
+
 personArr.forEach((item) => {
-    const person = new PersonFactory(item);
-    person.appendToDOM();
+    school.enrollPerson(item);
 });
 
+// отрисуем всех студентов в dom 
+// если методы называются по другому, поменяйте
+// точка монтирования document.body может быть изменена на любой другой элемент DOM
 
-/**
- * Тест класса School
- */
+school.appendToDOM();
 
-/*Создаём школу*/
-const schoooool = new School();
-personArr.forEach((item) => {
-    schoooool.enrollPerson(item);
-});
-console.log(schoooool);
-
-/* Добавляем студента */
-schoooool.enrollStudent( {
-    fullName: 'Пупкин Вячеслав',
-    type: "student",
-    university: 'НГУ',
-    course: 6,
-    birthDate: new Date(1488, 6, 28)
-} );
-console.log(schoooool);
-
-/* Ищем студента по имени */
-console.log(schoooool.findStudent('Маша Сидорова'));
-
-/* Удаляем студента */
-console.log(schoooool.studentsList);
-schoooool.dismissStudent('Пупкин Вячеслав');
-console.log(schoooool.studentsList);
+// в итоге в на странице должны получить список студентов и учителей
